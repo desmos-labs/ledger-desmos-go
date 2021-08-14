@@ -33,7 +33,7 @@ const (
 	userMessageChunkSize = 250
 )
 
-// LedgerCosmos represents a connection to the Cosmos app in a Ledger Nano S device
+// LedgerCosmos represents a connection to the Desmos app in a Ledger Nano S device
 type LedgerCosmos struct {
 	api     *ledger_go.Ledger
 	version VersionInfo
@@ -53,7 +53,7 @@ func FindLedgerCosmosUserApp() (*LedgerCosmos, error) {
 	if err != nil {
 		defer ledgerAPI.Close()
 		if err.Error() == "[APDU_CODE_CLA_NOT_SUPPORTED] Class not supported" {
-			return nil, fmt.Errorf("are you sure the Cosmos app is open?")
+			return nil, fmt.Errorf("are you sure the Desmos app is open?")
 		}
 		return nil, err
 	}
